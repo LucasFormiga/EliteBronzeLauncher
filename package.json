@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/lucasformiga/EliteLauncher",
+  "repository": "https://github.com/lucasformiga/EliteBronzeLauncher",
   "keywords": [],
   "author": "Elite Bronze Development Team",
   "license": "CC0-1.0",

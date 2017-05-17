@@ -27,7 +27,7 @@ const store						= new Store(
 {
 	configName: 'ver',
 	defaults: {
-    	gameVersion: 1
+		gameVersion: 1
 	}
 });
 
@@ -104,20 +104,20 @@ function getGameUpdates()
 	}
 
 	DownloadManager.bulkDownload({
-	    urls: patches
+		urls: patches
 	}, function(error, finished, errors)
 	{
-	    if (error)
-	    {
-	    	if (debug) console.log('An error occurred while we tried to download the update(s)');
-	    	store.set('gameVersion', gVersion);
-	        dialog.showErrorBox('Elite Updater', 'Ocorreu um erro ao tentar baixar a(s) atualização(ões), tente novamente.');
-	        app.quit();
-	        return;
-	    }
+		if (error)
+		{
+			if (debug) console.log('An error occurred while we tried to download the update(s)');
+			store.set('gameVersion', gVersion);
+			dialog.showErrorBox('Elite Updater', 'Ocorreu um erro ao tentar baixar a(s) atualização(ões), tente novamente.');
+			app.quit();
+			return;
+		}
 
-	    if (debug) console.log('Ok, download(s) finished.');
-	    unzipGameUpdates();
+		if (debug) console.log('Ok, download(s) finished.');
+		unzipGameUpdates();
 	});
 }
 
@@ -137,27 +137,27 @@ function unzipGameUpdates()
 				unzipper = new DecompressZip(gUpdatesDir + '/' + filename);
 
 				unzipper.extract({
-				    path: gDir
+					path: gDir
 				});
 
 				unzipper.on('error', function (err)
 				{
-				    if (debug) console.log('Caught an error while we tried to unzip a patch file.');
-				    store.set('gameVersion', gVersion);
-				    dialog.showErrorBox('Elite Updater', 'Houve um erro ao tentar descompactar um arquivo de patch, tente novamente.');
-				    app.quit();
-				    return;
+					if (debug) console.log('Caught an error while we tried to unzip a patch file.');
+					store.set('gameVersion', gVersion);
+					dialog.showErrorBox('Elite Updater', 'Houve um erro ao tentar descompactar um arquivo de patch, tente novamente.');
+					app.quit();
+					return;
 				});
 				 
 				unzipper.on('extract', function (log)
 				{
-				    if (debug) console.log('Finished extracting');
-				    deleteGameUpdates(filename);
+					if (debug) console.log('Finished extracting');
+					deleteGameUpdates(filename);
 				});
 				 
 				unzipper.on('progress', function (fileIndex, fileCount)
 				{
-				    if (debug) console.log('Extracted file ' + (fileIndex + 1) + ' of ' + fileCount + ' (' + filename + ')');
+					if (debug) console.log('Extracted file ' + (fileIndex + 1) + ' of ' + fileCount + ' (' + filename + ')');
 				});
 			}
 		});
