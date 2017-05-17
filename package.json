@@ -1,0 +1,22 @@
+{
+  "name": "EliteLauncher",
+  "version": "1.0.0",
+  "description": "The Elite Bronze's Launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/lucasformiga/EliteLauncher",
+  "keywords": [],
+  "author": "Elite Bronze Development Team",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "dependencies": {
+    "decompress-zip": "^0.3.0",
+    "electron-dl": "^1.9.0",
+    "electron-download-manager": "^1.3.1",
+    "request": "^2.81.0"
+  }
+}
